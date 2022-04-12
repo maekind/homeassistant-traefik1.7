@@ -9,5 +9,5 @@
     backend = "homeassistant"
 
   [frontends.homeassistant.routes.homeassistant]
-    rule = "Host:<HOMEASSISTANT_SUBDOMAIN.DOMAIN_NAME>"
+    rule = "Host:<HOMEASSISTANT_SUBDOMAIN_DOMAIN_NAME>"
 

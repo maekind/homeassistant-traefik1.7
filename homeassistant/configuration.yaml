@@ -9,7 +9,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
-    - <TRAEFIK_NETWORK_IP/TRAEFIK_NETWORK_MAS>
+    - <TRAEFIK_NETWORK>
 
 # Text to speech
 tts:

@@ -23,7 +23,7 @@ services:
     networks:
       - traefik_net
     labels:
-      - traefik.frontend.rule=Host:<TRAEFIK_SUBDOMAIN.DOMAIN_NAME>
+      - traefik.frontend.rule=Host:<TRAEFIK_SUBDOMAIN_DOMAIN_NAME>
       - traefik.port=8050
     extra_hosts:
         - host.docker.internal:<TRAEFIK_GATEWAY_IP_ADDRESS>
@@ -46,7 +46,7 @@ services:
     restart: unless-stopped
     labels:
       - traefik.backend=homeassistant
-      - traefik.frontend.rule=Host:<HOMEASSISTANT_SUBDOMAIN.DOMAIN_NAME>
+      - traefik.frontend.rule=Host:<HOMEASSISTANT_SUBDOMAIN_DOMAIN_NAME>
       - traefik.port=8123
       - traefik.enable=true
 

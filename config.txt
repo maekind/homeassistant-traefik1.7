@@ -1,0 +1,17 @@
+# docker-compose.yaml
+TRAEFIK_SUBDOMAIN_DOMAIN_NAME=dashboard.marcoespinosa.duckdns.org
+TRAEFIK_GATEWAY_IP_ADDRESS=172.19.0.1
+YOUR_USER_ID=1000
+YOUR_GROUP_ID=1000
+HOMEASSISTANT_SUBDOMAIN_DOMAIN_NAME=ha.marcoespinosa.duckdns.org
+#traefik.toml
+YOUR_PASSWORD=pepe
+YOUR_EMAIL=m@pepe.com
+YOUR_DOMAIN_NAME=marcoespinosa.duckdns.org
+#homeassistant.toml
+YOUR_HOST_IP_ADDRESS=192.168.1.25
+HOMEASSISTANT_SUBDOMAIN_DOMAIN_NAME=ha.marcoespinosa.duckdns.org
+#configuration.yaml
+TRAEFIK_NETWORK=172.19.0.0/16
+
+
