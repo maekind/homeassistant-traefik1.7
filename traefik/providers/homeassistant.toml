@@ -1,0 +1,13 @@
+# Home-assistant provider file to redirect external request
+[backends]
+  [backends.homeassistant]
+    [backends.homeassistant.servers.homeassistant]
+      url = "http://<YOUR_HOST_IP_ADDRESS>:8123"
+
+[frontends]
+  [frontends.homeassistant]
+    backend = "homeassistant"
+
+  [frontends.homeassistant.routes.homeassistant]
+    rule = "Host:<HOMEASSISTANT_SUBDOMAIN.DOMAIN_NAME>"
+

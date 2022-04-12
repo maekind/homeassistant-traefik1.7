@@ -1,0 +1,56 @@
+# Configuration sample file for traefik 1.7 and homeassistant
+# Author: Marco Espinosa
+# Email:  hi@marcoespinosa.es 
+
+version: '3.1'
+
+services:
+  
+  traefik: 
+    image: traefik:1.7.24-alpine
+    container_name: traefik
+    hostname: traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./traefik/acme.json:/acme.json
+      - ./traefik/providers:/providers  
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8050:8050'
+    networks:
+      - traefik_net
+    labels:
+      - traefik.frontend.rule=Host:<TRAEFIK_SUBDOMAIN.DOMAIN_NAME>
+      - traefik.port=8050
+    extra_hosts:
+        - host.docker.internal:<TRAEFIK_GATEWAY_IP_ADDRESS>
+
+
+  homeassistant:    
+    image: lscr.io/linuxserver/homeassistant    
+    container_name: homeassistant    
+    network_mode: host    
+    environment:      
+      - PUID=<YOUR_USER_ID>      
+      - PGID=<YOUR_GROUP_ID>      
+      - TZ=Europe/Madrid    
+    volumes:      
+      - ./homeassistant:/config    
+    ports:      
+      - '8123:8123'
+    expose:
+      - 8123
+    restart: unless-stopped
+    labels:
+      - traefik.backend=homeassistant
+      - traefik.frontend.rule=Host:<HOMEASSISTANT_SUBDOMAIN.DOMAIN_NAME>
+      - traefik.port=8123
+      - traefik.enable=true
+
+networks:      
+  traefik_net:
+    external:
+      name: traefik_net
