@@ -88,7 +88,7 @@ I have put some tags in to the configuration files that have to be replaced befo
 
 ## Configuration helper
 
-Now that we have understand how traefik and homeassitant are configured together, you can use the *configure.sh* sript to replace automatically all configuration tags. The simpliest way is to edit the config.txt file and fullfil the variables. Then, you launch the script and the configuration files will be updated.
+Now that we have understood how traefik and homeassitant are configured together, you can use the *configure.sh* sript to replace automatically all configuration tags. The simpliest way is to edit the config.txt file and fullfil the variables. Then, you launch the script and the configuration files will be updated.
 
 ## Notes
 
